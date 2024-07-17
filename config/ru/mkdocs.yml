@@ -35,10 +35,10 @@ extra:
     provider: custom
   alternate:
     - name: English
-      link: /en/ 
+      link: /test-docs/en/ 
       lang: en
     - name: Русский
-      link: /
+      link: /test-docs/
       lang: ru
 
 copyright: Copyright &copy; 2018 - <script>document.write(new Date().getFullYear())</script> Profiscope
