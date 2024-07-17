@@ -1,0 +1,121 @@
+site_name: Публичная документация CodeScoring
+docs_dir: '../../docs/en'
+# site_url: https://docs.codescoring.ru/
+theme:
+  name: material
+  custom_dir: '../../overrides/' 
+  language: ru
+  logo: assets/codescoring_logo.png
+  favicon: assets/favicon/favicon-32x32.png
+  features:
+    - navigation.tracking
+    - navigation.indexes
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/link
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to system preference
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off
+        name: Switch to light mode
+extra:
+  analytics:
+    provider: custom
+  alternate:
+    - name: English
+      link: /en/ 
+      lang: en
+    - name: Русский
+      link: /
+      lang: ru
+
+copyright: Copyright &copy; 2018 - <script>document.write(new Date().getFullYear())</script> Profiscope
+
+plugins:
+  - search
+  - print-site
+
+
+markdown_extensions:
+  - attr_list
+  - def_list
+  - tables
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - toc:
+        permalink: true
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Общая информация:
+    - Начало: index.md
+    - Функциональные характеристики: functionality.md
+    - Этапы интеграции: integration-stages.md
+    - Поддержка пакетных менеджеров: supported-package-managers.md
+    - Changelog: changelog.md
+  - Установка и эксплуатация on-premise:
+    - Аппаратные требования: on-premise/server-requirements.md
+    - Установка системы: on-premise/installation.md
+    - Обновление системы: on-premise/update.md
+    - Резервное копирование: on-premise/backup.md
+    - Работа через прокси: on-premise/proxy.md
+    - Самоподписанные SSL сертификаты: on-premise/self-signed-ssl.md
+    - Пути анализа и исключения: on-premise/analysis-ignore-paths.md
+    - Диагностика неполадок: on-premise/troubleshooting.md
+    - Работа системы в Kubernetes: on-premise/installation-in-k8s.md
+  - Начало работы с on-premise:
+    - Ввод ключа активации: on-premise/how-to/activation.md
+    - Создание владельцев: on-premise/how-to/proprietors.md
+    - Подключение системы контроля версий: on-premise/how-to/vcs-git.md
+    - Подключение менеджеров репозиториев: on-premise/how-to/repo-managers.md
+    - Управление проектами: on-premise/how-to/projects.md
+    - Настройка политик: on-premise/how-to/policies.md
+    - Запуск анализа: on-premise/how-to/launch-analysis.md
+    - Работа с Docker-образами: on-premise/how-to/registries.md
+    - Управление учетными записями: on-premise/how-to/users.md
+    - Работа с LDAP: on-premise/how-to/ldap-settings.md
+    - Работа с визуализацией графов зависимостей: on-premise/how-to/graphs.md
+    - Настройка уведомлений: on-premise/how-to/notifications.md
+    - Работа с аудит-логом: on-premise/how-to/audit-log.md
+    - Настройка метрик: on-premise/how-to/metrics.md
+    - Работа с API: on-premise/how-to/api.md
+  - Работа с CodeScoring OSA: 
+      - osa/index.md
+      - Nexus OSA: osa/nexus_osa.md
+      - JFrog OSA: osa/jfrog_osa.md
+      - Настройка политик OSA: osa/osa-policies.md
+      - Работа с компонентами OSA на инсталляции: osa/components.md
+  - Работа с консольным агентом:
+    - agent/index.md
+    - Настройка через конфигурационный файл: agent/config.md
+    - Команда сканирования: agent/scan.md
+    - Сканирование директории: agent/scan-dir.md
+    - Сканирование архивов: agent/scan-archive.md
+    - Сканирование Docker образов: agent/scan-docker.md
+    - Запуск с помощью Docker: agent/launch-docker.md
+    - Добавление в Gitlab CI: agent/gitlab-ci.md
+    - Добавление в Jenkins: agent/jenkins-pipeline.md
+    - Сохранение результатов сканирования: agent/save-results.md
+    - Разрешение зависимостей в окружении сборки: agent/resolve.md

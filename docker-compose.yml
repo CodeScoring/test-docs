@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+
+  mkdocs:
+    build: .
+    # image: squidfunk/mkdocs-material
+    volumes:
+      - .:/docs
+    ports:
+      - "8888:8000"
