@@ -1,0 +1,1829 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../projects/">
+      
+      
+        <link rel="next" href="../launch-analysis/">
+      
+      
+      <link rel="icon" href="../../../assets/favicon/favicon-32x32.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
+    
+    
+      
+        <title>Настройка политик - Публичная документация CodeScoring</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.76a95c52.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/print-site-enum-headings1.css">
+    
+      <link rel="stylesheet" href="../../../css/print-site-enum-headings2.css">
+    
+      <link rel="stylesheet" href="../../../css/print-site-enum-headings3.css">
+    
+      <link rel="stylesheet" href="../../../css/print-site-enum-headings4.css">
+    
+      <link rel="stylesheet" href="../../../css/print-site-enum-headings5.css">
+    
+      <link rel="stylesheet" href="../../../css/print-site-enum-headings6.css">
+    
+      <link rel="stylesheet" href="../../../css/print-site.css">
+    
+      <link rel="stylesheet" href="../../../css/print-site-material.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../../.." title="Публичная документация CodeScoring" class="md-header__button md-logo" aria-label="Публичная документация CodeScoring" data-md-component="logo">
+      
+  <img src="../../../assets/codescoring_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Публичная документация CodeScoring
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Настройка политик
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Выберите язык">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="ru" class="md-select__link">
+              Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../policies.en/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Публичная документация CodeScoring" class="md-nav__button md-logo" aria-label="Публичная документация CodeScoring" data-md-component="logo">
+      
+  <img src="../../../assets/codescoring_logo.png" alt="logo">
+
+    </a>
+    Публичная документация CodeScoring
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Общая информация
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Общая информация
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../functionality/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Функциональные характеристики
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../integration-stages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Этапы интеграции
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../supported-package-managers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Поддержка пакетных менеджеров
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../changelog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Changelog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Установка и эксплуатация on-premise
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Установка и эксплуатация on-premise
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server-requirements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Аппаратные требования
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Установка системы
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation-in-k8s/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation in Kubernetes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../update/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Обновление системы
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../backup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Резервное копирование
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../proxy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Работа через прокси
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../self-signed-ssl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Самоподписанные SSL сертификаты
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analysis-ignore-paths/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Пути анализа и исключения
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troubleshooting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Диагностика неполадок
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Начало работы с on-premise
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Начало работы с on-premise
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../activation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ввод ключа активации
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../proprietors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Создание владельцев
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vcs-git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Подключение системы контроля версий
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repo-managers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Подключение менеджеров репозиториев
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Управление проектами
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Настройка политик
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Настройка политик
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Принципы работы
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Настройка в системе
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Результаты работы политик
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Игнорирование политик
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../launch-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Запуск анализа
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../registries/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Работа с Docker-образами
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../users/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Управление учетными записями
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ldap-settings/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Работа с LDAP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Работа с визуализацией графов зависимостей
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notifications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Настройка уведомлений
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../audit-log/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Работа с аудит-логом
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metrics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Настройка метрик
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Работа с API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../osa/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Работа с CodeScoring OSA
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Работа с CodeScoring OSA
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../osa/nexus_osa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nexus OSA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../osa/jfrog_osa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JFrog OSA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../osa/osa-policies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Настройка политик OSA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../osa/components/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Работа с компонентами OSA на инсталляции
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../agent/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Работа с консольным агентом
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Работа с консольным агентом
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent/config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Настройка через конфигурационный файл
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent/scan/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Команда сканирования
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent/scan-dir/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Сканирование директории
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent/scan-archive/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Сканирование архивов
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent/scan-docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Сканирование Docker образов
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent/launch-docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Запуск с помощью Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent/gitlab-ci/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Добавление в Gitlab CI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent/jenkins-pipeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Добавление в Jenkins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent/save-results/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Сохранение результатов сканирования
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent/resolve/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Разрешение зависимостей в окружении сборки
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Принципы работы
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Настройка в системе
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Результаты работы политик
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Игнорирование политик
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<ul>
+<li class="i18n-link i18n-link-found i18n-link-en"><a href="../../../on-premise/how-to/policies.en/">English</a></li>
+</ul>
+<h1 id="_1">Настройка политик<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">Принципы работы<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><strong>Политики</strong> в системе CodeScoring представляют собой механизм отслеживания и блокирования Open Source компонентов в процессе разработки программного обеспечения. Они могут быть связаны с проверкой безопасности, совместимости лицензий или других критериев включения сторонних компонентов в разработку.</p>
+<p>Политики можно создавать для:</p>
+<ul>
+<li>всей организации;</li>
+<li>отдела;</li>
+<li>проекта;</li>
+<li>окружения разработки.</li>
+</ul>
+<p>Механизм политик учитывает указанный этап разработки программного обеспечения: от поступления сторонних компонентов в периметр организации до отслеживания сборок и написания нового кода.</p>
+<p>Политики настраиваются по условиям, объединенным логическим выражением <strong>И/ИЛИ</strong>. Помимо стандартных настроек политик безопасности по уровню критичности уязвимостей, условия могут быть настроены согласно информации о компоненте: дата релиза, лицензия, автор и другие. Всего поддерживается <strong>30 типизированных условий</strong>. Среди проверок также присутствует встроенная вендорская политика проверки на лицензионную чистоту.</p>
+<p>В результате срабатывания политики в системе CodeScoring создаются соответствующие оповещения <strong>Policy Alerts</strong>. Выбранные оповещения можно временно или навсегда проигнорировать. Оповещения могут быть экспортированы в виде отчета.</p>
+<p>Политики могут быть <strong>блокирующими</strong>: при срабатывании такой политики используемые компоненты блокируются в хранилище артефактов (прокси-репозитории), либо останавливается сборка программного продукта до устранения выявленного дефекта.</p>
+<p>Дополнительно, по срабатыванию политики может быть направлено уведомление ответственным специалистам в систему управления задачами или электронное письмо с описанием проблемы.</p>
+<h2 id="_3">Настройка в системе<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Политики создаются в разделе <code>Settings -&gt; Policies</code>. Перейти на форму создания политики можно по кнопке <strong>Create new</strong>.</p>
+<p>В форме создания политики задается контекст работы политики по следующим параметрам:</p>
+<ul>
+<li><strong>Name</strong> — название политики;</li>
+<li><strong>Proprietors</strong> — собственник кода, на которого распространяется политика, если пустое - политика применяется для всей организации;</li>
+<li><strong>Projects</strong> — проекты, на которые применяется политика;</li>
+<li><strong>Connect conditions with</strong> — логическое объединение выбранных условий;</li>
+<li><strong>Stages</strong> — стадии проекта, для которых применяется политика;</li>
+<li><strong>OSA Components</strong> – тип компонентов в плагинах OSA, для которых применяется политика (<strong>Packages</strong> или <strong>Container images</strong>)</li>
+<li><strong>Repositories</strong> – список репозиториев, для которых применяется политика;</li>
+<li><strong>Level</strong> — уровень критичности политики;</li>
+<li><strong>Blocker</strong> — признак блокировки сборки или установки компонента из прокси-репозитория;</li>
+<li><strong>Is active</strong> — признак временного выключения политики;</li>
+<li><strong>Description</strong> — описание политики;</li>
+<li><strong>Conditions</strong> — перечень условий в политике.</li>
+</ul>
+<p>Далее настраиваются условия срабатывания политики, поддерживаются следующие параметры:</p>
+<ul>
+<li><strong>PURL</strong> — <a href="https://github.com/package-url/purl-spec">package URL</a>, идентификатор пакета;</li>
+<li><strong>Dependency Name</strong> — название зависимости;</li>
+<li><strong>Dependency Version</strong> — версия зависимости;</li>
+<li><strong>Dependency Author</strong> — автор зависимости;</li>
+<li><strong>Dependency Release Date</strong> — дата релиза версии зависимости;</li>
+<li><strong>Dependency Age</strong> — возраст зависимости;</li>
+<li><strong>Technology</strong> — технология (язык или экосистема);</li>
+<li><strong>License</strong> — лицензия;</li>
+<li><strong>License Category</strong> — категория лицензии;</li>
+<li><strong>Vulnerability ID</strong> — идентификатор уязвимости;</li>
+<li><strong>CVSS2 Score</strong> — численная оценка угрозы по стандарту CVSS 2;</li>
+<li><strong>CVSS2 Severity</strong> — уровень угрозы по стандарту CVSS 2;</li>
+<li><strong>CVSS2 Access Vector (AV)</strong> – путь эксплуатации уязвимости (физический или сетевой);</li>
+<li><strong>CVSS2 Access Complexity (AC)</strong> – сложность эксплуатация уязвимости;</li>
+<li><strong>CVSS2 Authentication (Au)</strong> – требования аутентификации для эксплуатации уязвимости;</li>
+<li><strong>CVSS2 Availability Impact (A)</strong> – степень потери доступности данных;</li>
+<li><strong>CVSS2 Confidentiality Impact (C)</strong> – cтепень потери конфиденциальности данных;</li>
+<li><strong>CVSS2 Integrity Impact (I)</strong> – степень потери целостности данных;</li>
+<li><strong>CVSS3 Attack Vector (AV)</strong> - поверхность атаки;</li>
+<li><strong>CVSS3 Attack Complexity (AC)</strong> - сложность атаки;</li>
+<li><strong>CVSS3 Priviliges Required (PR)</strong> - требуемый уровень доступа для эксплуатации уязвимости;</li>
+<li><strong>CVSS3 User Interaction (UI)</strong> - наличие взаимодействия с пользователем;</li>
+<li><strong>CVSS3 Scope (S)</strong> - область безопасности компонента;</li>
+<li><strong>CVSS3 Confidentiality (C)</strong> - cтепень потери конфиденциальности данных;</li>
+<li><strong>CVSS3 Integrity (I)</strong> - степень потери целостности данных;</li>
+<li><strong>CVSS3 Availability (A)</strong> - степень потери доступности данных;</li>
+<li><strong>CVSS3 Score</strong> — численная оценка угрозы по стандарту CVSS 3;</li>
+<li><strong>CVSS3 Severity</strong> — уровень угрозы по стандарту CVSS 3;</li>
+<li><strong>Vulnerability Publish Date</strong> — дата публикации уязвимости;</li>
+<li><strong>Vulnerability Update Date</strong> — дата обновления уязвимости;</li>
+<li><strong>Vulnerability has exploit</strong> - наличие эксплойта в уязвимости;</li>
+<li><strong>Vulnerability impacts</strong> - область уязвимости;</li>
+<li><strong>Vulnerability has fixed version</strong> – уязвимость исправлена в новой версии; </li>
+<li><strong>Vulnerability Age (days)</strong> – возраст уязвимости (в днях);</li>
+<li><strong>Env</strong> — окружение;</li>
+<li><strong>Match type</strong> — тип соответствия зависимости (по манифесту, содержанию или разрешению);</li>
+<li><strong>Relation</strong> — прямая или транзитивная зависимость;</li>
+<li><strong>CWE</strong> — классификация в индексе Common Weakness Enumeration.</li>
+</ul>
+<p>Политика становится активной сразу после создания по нажатию кнопки <strong>Create</strong>. </p>
+<p><strong>Важно!</strong> Политики срабатывают во время анализа, поэтому важно их создать до запуска анализа.</p>
+<p><strong>Рекомендация!</strong> Если оставить поля <code>Proprietor</code> и <code>Project</code> пустыми, политика будет применяться для всех активных проектов в системе.</p>
+<h2 id="_4">Результаты работы политик<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>Результаты работы политик отображаются в разделе <code>Policy alerts</code>. Раздел имеет три вкладки:</p>
+<ul>
+<li><strong>Active</strong> – список уведомлений о сработавших политиках по результатам последнего анализа (проекта, образа или компонента в прокси-репозитории);</li>
+<li><strong>Ignored</strong> – список уведомлений о проигнорированных политиках;</li>
+<li><strong>Resolved</strong> – список уведомлений, которые были разрешены после последнего анализа (условие политики больше не актуально).</li>
+</ul>
+<p>Причина срабатывания политики отображается в поле <strong>Matched criteria</strong>, включая заданные условия и найденные данные о компоненте. Например, значение <code>CVSS3 Score &gt;= 3.00 (9.1)</code> подразумевает, что политика блокирования компонентов с CVSS3 равным или выше 3.00 сработала на компоненте с рейтингом уязвимости 9.1.</p>
+<h2 id="_5">Игнорирование политик<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Созданные политики можно временно или навсегда проигнорировать при анализе. Условие игнорирования позволит оставить политики в системе, при этом не получая уведомлений о ее срабатывании, например в случае если быстро исправить уязвимость невозможно. Создание и настройка условий игнорирования происходит в разделе <code>Settings -&gt; Policy Ignores</code>.</p>
+<p>Для создания условия игнорирования для одной или нескольких политик необходимо нажать на кнопку <strong>Create New</strong> и заполнить следующие поля:</p>
+<ul>
+<li><strong>Project</strong> - название проекта в системе;</li>
+<li><strong>Technology</strong> - технология (язык или экосистема);</li>
+<li><strong>Dependency name</strong> - название зависимости;</li>
+<li><strong>Dependency version</strong> - версия зависимости;</li>
+<li><strong>License</strong> - лицензия;</li>
+<li><strong>Vulnerability ID</strong> - идентификатор уязвимости;</li>
+<li><strong>Policies</strong> - игнорируемые политики;</li>
+<li><strong>Is enabled</strong> - признак активности условия;</li>
+<li><strong>Active from</strong> - дата начала работы условия;</li>
+<li><strong>Active to</strong> - дата завершения работы условия;</li>
+<li><strong>Note</strong> - заметка.</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2018 - <script>document.write(new Date().getFullYear())</script> Profiscope
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.indexes", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+        <script src="../../../js/print-site.js"></script>
+      
+    
+  </body>
+</html>

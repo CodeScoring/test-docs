@@ -1,0 +1,2371 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../installation/">
+      
+      
+        <link rel="next" href="../update/">
+      
+      
+      <link rel="icon" href="../../assets/favicon/favicon-32x32.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
+    
+    
+      
+        <title>Installation in Kubernetes - Публичная документация CodeScoring</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.76a95c52.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings1.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings2.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings3.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings4.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings5.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings6.css">
+    
+      <link rel="stylesheet" href="../../css/print-site.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-material.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#kubernetes" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="Публичная документация CodeScoring" class="md-header__button md-logo" aria-label="Публичная документация CodeScoring" data-md-component="logo">
+      
+  <img src="../../assets/codescoring_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Публичная документация CodeScoring
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Installation in Kubernetes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Выберите язык">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="ru" class="md-select__link">
+              Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../installation-in-k8s.en/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Публичная документация CodeScoring" class="md-nav__button md-logo" aria-label="Публичная документация CodeScoring" data-md-component="logo">
+      
+  <img src="../../assets/codescoring_logo.png" alt="logo">
+
+    </a>
+    Публичная документация CodeScoring
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Общая информация
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Общая информация
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../functionality/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Функциональные характеристики
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration-stages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Этапы интеграции
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supported-package-managers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Поддержка пакетных менеджеров
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changelog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Changelog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Установка и эксплуатация on-premise
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Установка и эксплуатация on-premise
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../server-requirements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Аппаратные требования
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Установка системы
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Installation in Kubernetes
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Installation in Kubernetes
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#helm-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      Установка с помощью Helm-чарта c параметрами по умолчанию
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helm-" class="md-nav__link">
+    <span class="md-ellipsis">
+      Расширенные настройки параметров Helm-чарта
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Расширенные настройки параметров Helm-чарта">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#postgresql-redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Подключение к внешним PostgreSQL и Redis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Подключение к внешним PostgreSQL и Redis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Подключение к внешнему Redis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postgresql-pgcat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Подключение к PostgreSQL через пулер PgCat
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      Подключение к внешнему пулеру PostgreSQL.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pv" class="md-nav__link">
+    <span class="md-ellipsis">
+      Настройка томов (PV)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Настройка томов (PV)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-volume-provisioning-storageclass" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamic Volume Provisioning с использованием требуемого StorageClass
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#persistentvolumeclaim-persistentvolume" class="md-nav__link">
+    <span class="md-ellipsis">
+      PersistentVolumeClaim для заранее созданных PersistentVolume
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#persistentvolumeclaim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Использование предварительно созданных PersistentVolumeClaim
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Использование локальных томов
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Настройка хранилища для временных файлов сканирований
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codescoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Горизонтальное масштабирование CodeScoring
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resource-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Настройка ограничения ресурсов (resource limits)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ca" class="md-nav__link">
+    <span class="md-ellipsis">
+      Добавление сертификата удостоверяющего центра (CA)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../update/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Обновление системы
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Резервное копирование
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../proxy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Работа через прокси
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-signed-ssl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Самоподписанные SSL сертификаты
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analysis-ignore-paths/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Пути анализа и исключения
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Диагностика неполадок
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Начало работы с on-premise
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Начало работы с on-premise
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/activation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ввод ключа активации
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/proprietors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Создание владельцев
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/vcs-git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Подключение системы контроля версий
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/repo-managers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Подключение менеджеров репозиториев
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/projects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Управление проектами
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/policies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Настройка политик
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/launch-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Запуск анализа
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/registries/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Работа с Docker-образами
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/users/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Управление учетными записями
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/ldap-settings/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Работа с LDAP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/graphs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Работа с визуализацией графов зависимостей
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/notifications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Настройка уведомлений
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/audit-log/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Работа с аудит-логом
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/metrics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Настройка метрик
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Работа с API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../osa/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Работа с CodeScoring OSA
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Работа с CodeScoring OSA
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../osa/nexus_osa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nexus OSA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../osa/jfrog_osa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JFrog OSA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../osa/osa-policies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Настройка политик OSA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../osa/components/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Работа с компонентами OSA на инсталляции
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../agent/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Работа с консольным агентом
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Работа с консольным агентом
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agent/config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Настройка через конфигурационный файл
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agent/scan/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Команда сканирования
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agent/scan-dir/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Сканирование директории
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agent/scan-archive/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Сканирование архивов
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agent/scan-docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Сканирование Docker образов
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agent/launch-docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Запуск с помощью Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agent/gitlab-ci/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Добавление в Gitlab CI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agent/jenkins-pipeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Добавление в Jenkins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agent/save-results/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Сохранение результатов сканирования
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agent/resolve/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Разрешение зависимостей в окружении сборки
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#helm-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      Установка с помощью Helm-чарта c параметрами по умолчанию
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helm-" class="md-nav__link">
+    <span class="md-ellipsis">
+      Расширенные настройки параметров Helm-чарта
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Расширенные настройки параметров Helm-чарта">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#postgresql-redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Подключение к внешним PostgreSQL и Redis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Подключение к внешним PostgreSQL и Redis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Подключение к внешнему Redis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postgresql-pgcat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Подключение к PostgreSQL через пулер PgCat
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      Подключение к внешнему пулеру PostgreSQL.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pv" class="md-nav__link">
+    <span class="md-ellipsis">
+      Настройка томов (PV)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Настройка томов (PV)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-volume-provisioning-storageclass" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamic Volume Provisioning с использованием требуемого StorageClass
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#persistentvolumeclaim-persistentvolume" class="md-nav__link">
+    <span class="md-ellipsis">
+      PersistentVolumeClaim для заранее созданных PersistentVolume
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#persistentvolumeclaim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Использование предварительно созданных PersistentVolumeClaim
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Использование локальных томов
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Настройка хранилища для временных файлов сканирований
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codescoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Горизонтальное масштабирование CodeScoring
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resource-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Настройка ограничения ресурсов (resource limits)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ca" class="md-nav__link">
+    <span class="md-ellipsis">
+      Добавление сертификата удостоверяющего центра (CA)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<ul>
+<li class="i18n-link i18n-link-found i18n-link-en"><a href="../../on-premise/installation-in-k8s.en/">English</a></li>
+</ul>
+<h1 id="kubernetes">Работа системы в Kubernetes<a class="headerlink" href="#kubernetes" title="Permanent link">&para;</a></h1>
+<h2 id="helm-c">Установка с помощью Helm-чарта c параметрами по умолчанию<a class="headerlink" href="#helm-c" title="Permanent link">&para;</a></h2>
+<p><strong>Важно!</strong>: Данный вариант установки не предоставляет возможность горизонтального масштабирования CodeScoring. Для установки CodeScoring с поддержкой горизонтального масштабирования обратитесь к соответствующему разделу документации ниже.</p>
+<p><strong>Важно!</strong>: Необходимо наличие настроенного default <code>StorageClass</code> в кластере. По умолчанию создаются тома <strong>объемом 20 GiB</strong></p>
+<p><strong>Порядок установки:</strong></p>
+<ol>
+<li>
+<p>Создать namespace.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>kubectl create namespace codescoring
+</code></pre></div>
+</li>
+<li>
+<p>Создать secret для доступа к приватному реестру Docker-образов системы "CodeScoring", используя адрес (<code>REGISTRY_URL</code>), логин (<code>USERNAME</code>) и пароль (<code>PASSWORD</code>), полученные от вендора.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>kubectl create secret docker-registry codescoring-regcred --docker-server=REGISTRY_URL --docker-username=USERNAME --docker-password=PASSWORD -n codescoring
+</code></pre></div>
+</li>
+<li>
+<p>Установить <a href="https://helm.sh/docs/intro/install/">Helm</a> предпочтительным способом. </p>
+</li>
+<li>
+<p>Выполнить следующие команды для добавления актуального Helm-репозитория на локальную машину:
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>helm repo add codescoring-org https://registry-one.codescoring.ru/repository/helm/ --username USERNAME --password PASSWORD
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>helm repo update
+</code></pre></div></p>
+</li>
+<li>
+<p>Создать файл <code>values.yaml</code> со следующим содержимым:</p>
+<p><strong>Важно!</strong>: Пожалуйста, замените значения в полях с чувствительными данными на собственные. К таким полям относятся <code>secretKey</code>, <code>defaultSuperuserUsername</code>, <code>defaultSuperuserPassword</code>, <code>defaultSuperuserEmail</code>, а также все поля, содержащие <code>username</code> или <code>password</code>. Также важно учитывать, что все подобные переменные являются обязательными. </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>codescoring:
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  config:
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    ## codescoring-backend configuration parameters
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    siteScheme: https # схема сайта http или https
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    siteHost: &quot;codescoring.k8s.local&quot; # домен, по которому будет доступен CodeScoring
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    djangoCSRFTrustedOptions: &quot;https://codescoring.k8s.local&quot; # Домен, по которому будет доступен CodeScoring, включая схему
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    secretKey: &quot;&quot; # секретный ключ для бэкенда приложения, случайная строка символов
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    defaultSuperuserUsername: &quot;admin&quot; # имя администратора в системе 
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    defaultSuperuserPassword: &quot;changeme&quot; # пароль администратора в системе
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    defaultSuperuserEmail: &quot;mail@example.com&quot; # e-mail администратора в системе
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    databaseHost: ipcs-pgcat
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    databasePort: 5432
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    postgresqlDatabase: &quot;codescoring&quot;
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    postgresqlUsername: &quot;codescoring&quot;
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    postgresqlPassword: &quot;changeme&quot; # пароль должен совпадать с паролем у pgcat.postgresql.password
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>  pgcat:
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>    adminPassword: &quot;changeme&quot;
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>    postgresql:
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>      host: &quot;codescoring-postgresql&quot;
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>      port: 5432
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>      username: &quot;codescoring&quot;
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>      password: &quot;changeme&quot; # пароль должен совпадать с паролем в codescoring.postgresqlPassword
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>      database: &quot;codescoring&quot;
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>  frontend:
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>    ingress:
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>      enabled: true
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>      className: &quot;nginx&quot;
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>      hosts:
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>        - host: codescoring.k8s.local # домен, по которому будет доступен CodeScoring
+<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>          paths:
+<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>            - path: /
+<a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>              pathType: ImplementationSpecific
+</code></pre></div>
+</li>
+<li>
+<p>Выполнить команду для установки чарта
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>helm install codescoring codescoring-org/codescoring -n codescoring -f values.yaml --create-namespace --atomic --version CHART_VERSION
+</code></pre></div></p>
+</li>
+</ol>
+<h2 id="helm-">Расширенные настройки параметров Helm-чарта<a class="headerlink" href="#helm-" title="Permanent link">&para;</a></h2>
+<p><strong>Важно!</strong>: Настоятельно рекомендуется вносить необходимые изменения <strong>до установки CodeScoring</strong>, в противном случае может потребоваться полная переустановка системы. Данные инструкции предполагают, что <strong>специалист имеет опыт работы с кластером Kubernetes и утилитой Helm</strong>.</p>
+<p>Для удобного редактирования параметров CodeScoring можно скачать и распаковать исходный код Helm-чарта командой:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>helm pull codescoring-org/codescoring --version CHART_VERSION --untar --untardir codescoring-src &amp;&amp; cd codescoring-src
+</code></pre></div>
+<p>В файле <code>values.yaml</code> можно отредактировать нужные переменные, и после этого, находясь в каталоге с исходным кодом Helm-чарта, выполнить команду установки
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>helm install codescoring . -f values.yaml -n codescoring --atomic --version CHART_VERSION
+</code></pre></div></p>
+<h3 id="postgresql-redis">Подключение к внешним PostgreSQL и Redis<a class="headerlink" href="#postgresql-redis" title="Permanent link">&para;</a></h3>
+<p>По умолчанию PostgreSQL и Redis запускаются в отдельных <code>StatefulSet</code>. Данный вариант может не подходить для использования в <strong>production-окружении</strong> , т.к. не является отказоустойчивым.</p>
+<h4 id="redis">Подключение к внешнему Redis<a class="headerlink" href="#redis" title="Permanent link">&para;</a></h4>
+<p>Для подключения к внешнему Redis, необходимо выполнить следующие действия:</p>
+<ol>
+<li>Отключить развертывание Redis, указав переменную -  <code>redis.enabled: false</code></li>
+<li>В переменных <code>codescoring.config.djangoCachesRedisUrls</code> и <code>codescoring.config.hueyRedisUrl</code> указать строки подключения для внешнего Redis.</li>
+</ol>
+<h4 id="postgresql-pgcat">Подключение к PostgreSQL через пулер PgCat<a class="headerlink" href="#postgresql-pgcat" title="Permanent link">&para;</a></h4>
+<p><strong>Важно!</strong>: Подключение к внешней PostgreSQL необходимо выполнять с использованием пулера соединений.</p>
+<p>Данный вариант подходит, если в существующей инфраструктуре уже развернута PostgreSQL, но пулер соединений не используется. Helm-чарт развернет пулер <a href="https://github.com/postgresml/pgcat">PgCat</a> и подключит его к существующей PostgreSQL. Необходимо выполнить следующие действия:</p>
+<ol>
+<li>
+<p>Отключить развертывание PostgreSQL, указав переменную - <code>postgresql.enabled: false</code></p>
+</li>
+<li>
+<p>Подключить пулер PgCat к внешней PostgreSQL, заменив соответствующие параметры на нужные:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>codescoring:
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  config:
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    postgresqlDatabase: &quot;codescoring&quot;
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    postgresqlUsername: &quot;codescoring&quot;
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    postgresqlPassword: &quot;changeme&quot;
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>  pgcat:
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    postgresql:
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>      host: &quot;postgresql.example.host&quot;
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>      port: 5432
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>      username: &quot;codescoring&quot;
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>      password: &quot;changeme&quot;
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>      database: &quot;codescoring&quot;
+</code></pre></div></p>
+</li>
+</ol>
+<h4 id="postgresql">Подключение к внешнему пулеру PostgreSQL.<a class="headerlink" href="#postgresql" title="Permanent link">&para;</a></h4>
+<p>Данный вариант подходит, если в существующей инфраструктуре уже развернута PostgreSQL и пулер соединений (например, PgBouncer).
+В этом случае развертывание пулера PgCat не требуется. Необходимо выполнить следующие действия:</p>
+<ol>
+<li>Отключить развертывание PostgreSQL, указав переменную - <code>postgresql.enabled: false</code></li>
+<li>Отключить развертывание PgCat, указав переменную - <code>codescoring.pgcat.enabled: false</code></li>
+<li>Подключить codescoring напрямую к внешнему пулеру, в секции <code>codescoring.config</code> параметры:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>posgtresqlHost: ipcs-pgcat
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>posgtresqlPort: 5432
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>postgresqlDatabase: &quot;codescoring&quot;
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>postgresqlUsername: &quot;codescoring&quot;
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>postgresqlPassword: &quot;changeme&quot;
+</code></pre></div>
+<h3 id="pv">Настройка томов (PV)<a class="headerlink" href="#pv" title="Permanent link">&para;</a></h3>
+<p>По умолчанию чарт создает необходимые тома через <a href="https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/">Dynamic Volume Provisioning</a> с использованием <code>StorageClass</code> по умолчанию (default). В случае, если данный вариант развертывания томов не подходит, присутствует возможность гибко настроить создание томов несколькими способами. </p>
+<p><strong>Важно!</strong>: Описанные ниже опции являются <strong>взаимоисключающими</strong>. Необходимо выбрать <strong>ТОЛЬКО ОДИН</strong> вариант развертывания для каждого тома. Допускается выбор разных вариантов развертывания для разных томов.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Для изменения размера создаваемых томов (за исключением локальных) необходимо изменить параметр <code>size</code> в соответствующих секциях</p>
+</div>
+<h4 id="dynamic-volume-provisioning-storageclass">Dynamic Volume Provisioning с использованием требуемого StorageClass<a class="headerlink" href="#dynamic-volume-provisioning-storageclass" title="Permanent link">&para;</a></h4>
+<p>Задать требуемый <code>StorageClass</code> можно в следующих переменных:</p>
+<ul>
+<li><code>codescoring.persistentVolumes.analysisRoot.storageClass</code></li>
+<li><code>codescoring.persistentVolumes.djangoStatic.storageClass</code></li>
+<li><code>codescoring.backup.persistentVolume.storageClass</code></li>
+<li><code>redis.persistentVolume.storageClass</code> (если используется встроенный Redis)</li>
+<li><code>postgresql.persistentVolume.storageClass</code> (если используется встроенная PostgreSQL)</li>
+</ul>
+<p>В этом случае, будут созданы тома с использованием заданного <code>StorageClass</code></p>
+<h4 id="persistentvolumeclaim-persistentvolume">PersistentVolumeClaim для заранее созданных PersistentVolume<a class="headerlink" href="#persistentvolumeclaim-persistentvolume" title="Permanent link">&para;</a></h4>
+<p>Название предварительно созданных томов можно задать в следующих переменных:</p>
+<ul>
+<li><code>codescoring.persistentVolumes.analysisRoot.volumeName</code></li>
+<li><code>codescoring.persistentVolumes.djangoStatic.volumeName</code></li>
+<li><code>codescoring.backup.persistentVolume.volumeName</code></li>
+<li><code>redis.persistentVolume.volumeName</code> (если используется встроенный Redis)</li>
+<li><code>postgresql.persistentVolume.volumeName</code> (если используется встроенная PostgreSQL)</li>
+</ul>
+<p>В этом случае будут созданы только <code>PersistentVolumeClaim</code> для томов, заданных в этих переменных</p>
+<h4 id="persistentvolumeclaim">Использование предварительно созданных PersistentVolumeClaim<a class="headerlink" href="#persistentvolumeclaim" title="Permanent link">&para;</a></h4>
+<p>Название предварительно созданных PVC можно задать в следующих переменных:</p>
+<ul>
+<li><code>codescoring.persistentVolumes.analysisRoot.existingClaim</code></li>
+<li><code>codescoring.persistentVolumes.djangoStatic.existingClaim</code></li>
+<li><code>codescoring.backup.persistentVolume.existingClaim</code></li>
+<li><code>redis.persistentVolume.existingClaim</code> (если используется встроенный Redis)</li>
+<li><code>postgresql.persistentVolume.exsistingClaim</code> (если используется встроенная PostgreSQL)</li>
+</ul>
+<p>В этом случае указанное название PVC будет подставлено в секцию <code>volumes</code> для <code>Pod</code> напрямую.</p>
+<h4 id="_1">Использование локальных томов<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
+<p>При отсутствии в кластере Kubernetes внешнего хранилища данных возможен запуск CodeScoring с использованием локальных томов. В этом случае данные будут хранится на одной из нод кластера. </p>
+<p>Для создания локальных томов необходимо выполнить следующие действия:</p>
+<ol>
+<li>
+<p>Присвоить значение <code>true</code> следующим переменным:</p>
+<ul>
+<li><code>codescoring.persistentVolumes.analysisRoot.localVolume.enabled</code></li>
+<li><code>codescoring.persistentVolumes.djangoStatic.localVolume.enabled</code></li>
+<li><code>codescoring.backup.persistentVolume.localVolume.enabled</code></li>
+<li><code>redis.persistentVolume.localVolume.enabled</code> (если используется встроенный Redis)</li>
+<li><code>postgresql.persistentVolume.localVolume.enabled</code> (если используется встроенная PostgreSQL)</li>
+</ul>
+</li>
+<li>
+<p>Задать путь до <strong>каталога на ноде кластера</strong>, в котором будут размещены данные в следующих переменных:</p>
+<ul>
+<li><code>codescoring.persistentVolumes.analysisRoot.localVolume.path</code></li>
+<li><code>codescoring.persistentVolumes.djangoStatic.localVolume.path</code></li>
+<li><code>codescoring.backup.persistentVolume.localVolume.path</code></li>
+<li><code>redis.persistentVolume.localVolume.path</code> (если используется встроенный Redis)</li>
+<li><code>postgresql.persistentVolume.localVolume.path</code> (если используется встроенная PostgreSQL)</li>
+</ul>
+</li>
+<li>
+<p>Указать название ноды, на которой будет создан локальный том в следующих переменных:</p>
+<ul>
+<li><code>codescoring.persistentVolumes.analysisRoot.localVolume.nodeHostname</code></li>
+<li><code>codescoring.persistentVolumes.djangoStatic.localVolume.nodeHostname</code></li>
+<li><code>codescoring.backup.persistentVolume.localVolume.nodeHostname</code></li>
+<li><code>redis.persistentVolume.localVolume.nodeHostname</code> (если используется встроенный Redis)</li>
+<li><code>postgresql.persistentVolume.localVolume.nodeHostname</code> (если используется встроенная PostgreSQL)</li>
+</ul>
+</li>
+</ol>
+<p>Допускается использование разных нод для разных томов.</p>
+<h4 id="_2">Настройка хранилища для временных файлов сканирований<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<p>По умолчанию временные файлы в процессе сканирования хранятся в директории <code>/tmp</code> внутри контейнеров, к которой монтируются Ephemeral Volumes типа <code>emptyDir</code>:</p>
+<ul>
+<li><code>codescoring.huey.ipcsQueue.ephemeralVolumes</code></li>
+<li><code>codescoring.huey.tasksOsaContainerImageScan.ephemeralVolumes</code></li>
+<li><code>codescoring.huey.tasksOsaPackageScan.ephemeralVolumes</code></li>
+</ul>
+<p>Однако в некоторых случаях может потребоваться использовать Persistent Volume вместо Ephemeral Volume. В таком случае следует закомментировать соответствующие секции в <code>ephemeralVolumes</code> для одного или нескольких сервисов, в зависимости от того, для каких сервисов требуется монтировать тома:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>codescoring:
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>  huey:
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    ipcsQueue:
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>      ephemeralVolumes:
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>        volumeMounts:
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>        # - mountPath: /tmp
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>        #   name: ipcs-queue-tmp
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>        - mountPath: /etc/ssl/certs
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>          name: ipcs-queue-ssl-certs
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>        volumes:
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>        # - name: ipcs-queue-tmp
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>        #   emptyDir: {}
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>        - name: ipcs-queue-ssl-certs
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>          emptyDir: {}
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>    tasksOsaContainerImageScan:
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>      ephemeralVolumes:
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>        volumeMounts:
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>        # - mountPath: /tmp
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>        #   name: container-image-scan-tmp
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>        - mountPath: /etc/ssl/certs
+<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>          name: container-image-scan-ssl-certs
+<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a>        volumes:
+<a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a>        # - name: container-image-scan-tmp
+<a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a>        #   emptyDir: {}
+<a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a>        - name: container-image-scan-ssl-certs
+<a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a>          emptyDir: {}
+<a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a>
+<a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a>    tasksOsaPackageScan:
+<a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a>      ephemeralVolumes:
+<a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a>        volumeMounts:
+<a id="__codelineno-9-32" name="__codelineno-9-32" href="#__codelineno-9-32"></a>        # - mountPath: /tmp
+<a id="__codelineno-9-33" name="__codelineno-9-33" href="#__codelineno-9-33"></a>        #   name: package-scan-tmp
+<a id="__codelineno-9-34" name="__codelineno-9-34" href="#__codelineno-9-34"></a>        - mountPath: /etc/ssl/certs
+<a id="__codelineno-9-35" name="__codelineno-9-35" href="#__codelineno-9-35"></a>          name: package-scan-ssl-certs
+<a id="__codelineno-9-36" name="__codelineno-9-36" href="#__codelineno-9-36"></a>        volumes:
+<a id="__codelineno-9-37" name="__codelineno-9-37" href="#__codelineno-9-37"></a>        # - name: package-scan-tmp
+<a id="__codelineno-9-38" name="__codelineno-9-38" href="#__codelineno-9-38"></a>        #   emptyDir: {}
+<a id="__codelineno-9-39" name="__codelineno-9-39" href="#__codelineno-9-39"></a>        - name: package-scan-ssl-certs
+<a id="__codelineno-9-40" name="__codelineno-9-40" href="#__codelineno-9-40"></a>          emptyDir: {}
+</code></pre></div>
+<p>После необходимо выставить значение <code>enabled: true</code> в одной или нескольких из следующих секций:</p>
+<ul>
+<li><code>codescoring.huey.persistentVolumes.hueyTmp</code></li>
+<li><code>codescoring.huey.persistentVolumes.hueyPackageScanTmp</code></li>
+<li><code>codescoring.huey.persistentVolumes.hueyContainerImageScanTmp</code></li>
+</ul>
+<p>В результате будут созданы PersistentVolumeClaim для соответсвующих сервисов. Стоит отметить, что возможности конфигурирования данных томов полностью соответствуют описанным в секции <a href="#pv">Настройка томов (PV)</a>.</p>
+<p>При горизонтальном масштабировании сервисов, необходимо произвести настройку томов в соответствии с инструкцией в разделе <a href="#codescoring">Горизонтальное масштабирование CodeScoring</a>.</p>
+<h3 id="codescoring">Горизонтальное масштабирование CodeScoring<a class="headerlink" href="#codescoring" title="Permanent link">&para;</a></h3>
+<p><strong>Важно!</strong>: Для горизонтального масштабирования системы CodeScoring необходимо наличие в кластере Kubernetes возможности создания томов с типом доступа <strong>ReadWriteMany (RWX)</strong></p>
+<p>Для горизонтального масштабирования CodeScoring необходимо создать тома <code>analysis-root</code> и <code>django-static</code> с типом доступа <code>ReadWriteMany</code>. </p>
+<p>Для этого необходимо заменить значение <code>ReadWriteOnce</code> на <code>ReadWriteMany</code> в переменных:</p>
+<ul>
+<li><code>codescoring.persistentVolumes.analysisRoot.accessModes</code></li>
+<li><code>codescoring.persistentVolumes.djangoStatic.accessModes</code></li>
+</ul>
+<p>Затем, необходимо закоментировать переменные:
+- <code>codescoring.backend.affinity</code>
+- <code>codescoring.frontend.affinity</code></p>
+<p>Если этого не сделать, то все поды будут запущены только на одной ноде кластера.</p>
+<h2 id="resource-limits">Настройка ограничения ресурсов (resource limits)<a class="headerlink" href="#resource-limits" title="Permanent link">&para;</a></h2>
+<p>По умолчанию <code>requests</code> и <code>limits</code> не заданы. Это сделано для обеспечения возможности запуска системы CodeScoring в кластерах с малым количеством ресурсов (например, minikube) c целью тестирования.
+При запуске в <strong>production-окружении</strong> может потребоваться настроить ограничение ресурсов. Это можно сделать, задав следующие переменные:</p>
+<ul>
+<li><code>postgresql.resources</code> (при использовании встроенной PostgreSQL)</li>
+<li><code>redis.resources</code> (при использовании встроенного Redis)</li>
+<li><code>codescoring.backend.resources</code></li>
+<li><code>codescoring.frontend.resources</code></li>
+<li><code>codescoring.huey.highPriorityQueue.resources</code></li>
+<li><code>codescoring.huey.ipcsQueue.resources</code></li>
+<li><code>codescoring.huey.tasksOsaContainerImageScan.resources</code></li>
+<li><code>codescoring.huey.tasksOsaPackageScan.resources</code></li>
+<li><code>codescoring.huey.tasksPolicy.resources</code></li>
+</ul>
+<p>Возможно указание как <code>resources</code> и <code>limits</code> вместе, так и по отдельности, например:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>codescoring:
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>  backend:
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    resources:
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>      limits:
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>        cpu: 1000m
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>        memory: 2000Mi
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>  huey:
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>    ipcsQueue:
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>      resources:
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>        limits:
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>          cpu: 2000m
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>          memory: 3000Mi
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>        requests:
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>          cpu: 1000m
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>          memory: 1000Mi
+</code></pre></div>
+<p>Ниже приведены примерные значения <code>limits</code> для инсталляции CodeScoring с 8-10 проектами:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>codescoring:
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>  backend:
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    resources:
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>      limits:
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>        cpu: 250m
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>        memory: 2500Mi
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>  huey:
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>    ipcsQueue:
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>      scheduler:
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>        resources:
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>          limits:
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>            cpu: 500m
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>            memory: 500Mi
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>      resources:
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>        limits:
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>          cpu: 2250m
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>          memory: 4000Mi
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>    highPriorityQueue:
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>      resources:
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>        limits:
+<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>          cpu: 2250m
+<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>          memory: 4000Mi
+<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>    tasksOsaContainerImageScan:
+<a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a>      resources:
+<a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a>        limits:
+<a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a>          cpu: 2250m
+<a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a>          memory: 4000Mi
+<a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a>    tasksOsaPackageScan:
+<a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a>      resources:
+<a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a>        limits:
+<a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a>          cpu: 2250m
+<a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a>          memory: 4000Mi
+<a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a>    tasksOsaPackageScan:
+<a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a>      resources:
+<a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a>        limits:
+<a id="__codelineno-11-36" name="__codelineno-11-36" href="#__codelineno-11-36"></a>          cpu: 2250m
+<a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a>          memory: 4000Mi
+<a id="__codelineno-11-38" name="__codelineno-11-38" href="#__codelineno-11-38"></a>    tasksPolicy:
+<a id="__codelineno-11-39" name="__codelineno-11-39" href="#__codelineno-11-39"></a>      resources:
+<a id="__codelineno-11-40" name="__codelineno-11-40" href="#__codelineno-11-40"></a>        limits:
+<a id="__codelineno-11-41" name="__codelineno-11-41" href="#__codelineno-11-41"></a>          cpu: 2250m
+<a id="__codelineno-11-42" name="__codelineno-11-42" href="#__codelineno-11-42"></a>          memory: 4000Mi
+<a id="__codelineno-11-43" name="__codelineno-11-43" href="#__codelineno-11-43"></a>    tasksTqi:
+<a id="__codelineno-11-44" name="__codelineno-11-44" href="#__codelineno-11-44"></a>      resources:
+<a id="__codelineno-11-45" name="__codelineno-11-45" href="#__codelineno-11-45"></a>        limits:
+<a id="__codelineno-11-46" name="__codelineno-11-46" href="#__codelineno-11-46"></a>          cpu: 2250m
+<a id="__codelineno-11-47" name="__codelineno-11-47" href="#__codelineno-11-47"></a>          memory: 4000Mi
+<a id="__codelineno-11-48" name="__codelineno-11-48" href="#__codelineno-11-48"></a>  frontend:
+<a id="__codelineno-11-49" name="__codelineno-11-49" href="#__codelineno-11-49"></a>    resources:
+<a id="__codelineno-11-50" name="__codelineno-11-50" href="#__codelineno-11-50"></a>      limits:
+<a id="__codelineno-11-51" name="__codelineno-11-51" href="#__codelineno-11-51"></a>        cpu: 250m
+<a id="__codelineno-11-52" name="__codelineno-11-52" href="#__codelineno-11-52"></a>        memory: 500Mi
+<a id="__codelineno-11-53" name="__codelineno-11-53" href="#__codelineno-11-53"></a>  redis:
+<a id="__codelineno-11-54" name="__codelineno-11-54" href="#__codelineno-11-54"></a>    resources:
+<a id="__codelineno-11-55" name="__codelineno-11-55" href="#__codelineno-11-55"></a>      limits:
+<a id="__codelineno-11-56" name="__codelineno-11-56" href="#__codelineno-11-56"></a>        cpu: 1000m
+<a id="__codelineno-11-57" name="__codelineno-11-57" href="#__codelineno-11-57"></a>        memory: 2000Mi
+<a id="__codelineno-11-58" name="__codelineno-11-58" href="#__codelineno-11-58"></a>  postgresql:
+<a id="__codelineno-11-59" name="__codelineno-11-59" href="#__codelineno-11-59"></a>    resources:
+<a id="__codelineno-11-60" name="__codelineno-11-60" href="#__codelineno-11-60"></a>      limits:
+<a id="__codelineno-11-61" name="__codelineno-11-61" href="#__codelineno-11-61"></a>        cpu: 1000m
+<a id="__codelineno-11-62" name="__codelineno-11-62" href="#__codelineno-11-62"></a>        memory: 2000Mi
+</code></pre></div></p>
+<h2 id="ca">Добавление сертификата удостоверяющего центра (CA)<a class="headerlink" href="#ca" title="Permanent link">&para;</a></h2>
+<p>Для доступа CodeScoring к ресурсам с TLS-сертификатами, подписанными корпоративным удостоверяющим центром (CA) необходимо:</p>
+<ol>
+<li>Присвоить переменной <code>codescoring.trustedCA.enabled</code> значение <code>true</code></li>
+<li>Добавить корневой сертификат удостоверяющего центра (RootCA) в формате PEM в переменную <code>codescoring.trustedCA.certificates</code> в формате <code>ключ: значение</code>, 
+где ключ - имя файла сертификата, включая расширение <code>.crt</code>, значение - сертификат в формате PEM.</li>
+</ol>
+<p>Например:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>codescoring:
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>  trustedCA:
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    enabled: true
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>    certificates:
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>        ## THIS IS AN EXAMPLE ONE! DO NOT USE IN PRODUCTION!
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>        my-root-ca.crt: |-
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>          -----BEGIN CERTIFICATE-----
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>          MIIDTDCCAjSgAwIBAgIBATANBgkqhkiG9w0BAQUFADA3MQswCQYDVQQGEwJERTEP
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>          MA0GA1UEChMGZWR1UEtJMRcwFQYDVQQDEw5lZHVQS0kgVGVzdCBDQTAeFw0xMDAz
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>          MzExMjIwMjRaFw0zMDAzMjYxMjIwMjRaMDcxCzAJBgNVBAYTAkRFMQ8wDQYDVQQK
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>          EwZlZHVQS0kxFzAVBgNVBAMTDmVkdVBLSSBUZXN0IENBMIIBIjANBgkqhkiG9w0B
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>          AQEFAAOCAQ8AMIIBCgKCAQEAt5IxCk/NQPOLqeA1lGuB3pvqHGQPxRQ1udYGcXQY
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>          t7EuSMFymUR9m5TsifG1ktktJTtOWyaWFC4ac0vai49wGVeuDYptfZBoHLIUvCwN
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>          DOofLYHxk04WzfrtSiUTptn1o6QPOw8YR0XH30MEi1zgD8fLMZmVTJ+XwA5Eus6c
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>          XtTmI4XhNrHUtvWt4UsNgLmp5/djUgRMpNqxIdrpFQzl+XycRJRAaoAwUzHFl14t
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>          49qwBhGChxQ8AdDMQGA7kv6VR8o0ktCPv3a4GQbs8+z0cX0w5dC+XhJ1xpqW6TOg
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>          qAY9XBFIDe5j21hjKmNZ39rsODVGUS2wUtNEhSz+3YqxLwIDAQABo2MwYTAdBgNV
+<a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>          HQ4EFgQUqHe3saMjZZLan8RlFJs+Xuz4yiAwHwYDVR0jBBgwFoAUqHe3saMjZZLa
+<a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a>          n8RlFJs+Xuz4yiAwDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMCAQYwDQYJ
+<a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a>          KoZIhvcNAQEFBQADggEBAEjQGyHZQis47c2kf+zXJJoDDlRgFzr9xfcnrHFaJvYx
+<a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a>          nuqNE0T+xmujnwGm3VrgddeAQJuW3sD6y0Ox8NgL4z886VFeaDQ0GmFPI6HEVtg6
+<a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a>          mixMhi+YzdkC+PFrEdYUeVNNwVO+bvJb1Rc08BYU4v7VtTkssHjru76E2/ahn/Ct
+<a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a>          kaVTEojEWeRaxsw5/0VLkgyf8SwDaukM2aamqgEzfsw5GTdSAh7ERZKc+zF7Sr5s
+<a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a>          DY8c5lOmyCwuNh9ODuw4cAThICrn7G8bh8ZyxLyj4Znxh0X45SwMZKTmYLfy9ab8
+<a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a>          b/j7FK8uBNRL+pXl9HGBWAFA01uJw4HkYK+Uo+RcAzo=
+<a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a>          -----END CERTIFICATE-----
+</code></pre></div>
+В случае наличия нескольких корневых CA необходимо добавить их в отдельные ключи, например:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>codescoring:
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>  trustedCA:
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    enabled: true
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>    certificates:
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>        my-root-ca.crt: |-
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>          ...
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>        my-root-ca-2.crt: |-
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>          ...
+</code></pre></div></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2018 - <script>document.write(new Date().getFullYear())</script> Profiscope
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.indexes", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+        <script src="../../js/print-site.js"></script>
+      
+    
+  </body>
+</html>

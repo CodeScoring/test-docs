@@ -1,0 +1,1758 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../config/">
+      
+      
+        <link rel="next" href="../scan-dir/">
+      
+      
+      <link rel="icon" href="../../assets/favicon/favicon-32x32.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
+    
+    
+      
+        <title>Команда сканирования - Публичная документация CodeScoring</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.76a95c52.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings1.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings2.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings3.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings4.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings5.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-enum-headings6.css">
+    
+      <link rel="stylesheet" href="../../css/print-site.css">
+    
+      <link rel="stylesheet" href="../../css/print-site-material.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="Публичная документация CodeScoring" class="md-header__button md-logo" aria-label="Публичная документация CodeScoring" data-md-component="logo">
+      
+  <img src="../../assets/codescoring_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Публичная документация CodeScoring
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Команда сканирования
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8v2m9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1 0 1.71-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Выберите язык">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="ru" class="md-select__link">
+              Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../scan.en/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Публичная документация CodeScoring" class="md-nav__button md-logo" aria-label="Публичная документация CodeScoring" data-md-component="logo">
+      
+  <img src="../../assets/codescoring_logo.png" alt="logo">
+
+    </a>
+    Публичная документация CodeScoring
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Общая информация
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Общая информация
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../functionality/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Функциональные характеристики
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration-stages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Этапы интеграции
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supported-package-managers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Поддержка пакетных менеджеров
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changelog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Changelog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Установка и эксплуатация on-premise
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Установка и эксплуатация on-premise
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../on-premise/server-requirements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Аппаратные требования
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../on-premise/installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Установка системы
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../on-premise/installation-in-k8s/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation in Kubernetes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../on-premise/update/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Обновление системы
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../on-premise/backup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Резервное копирование
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../on-premise/proxy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Работа через прокси
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../on-premise/self-signed-ssl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Самоподписанные SSL сертификаты
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../on-premise/analysis-ignore-paths/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Пути анализа и исключения
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../on-premise/troubleshooting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Диагностика неполадок
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Начало работы с on-premise
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Начало работы с on-premise
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../on-premise/how-to/activation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ввод ключа активации
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../on-premise/how-to/proprietors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Создание владельцев
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../on-premise/how-to/vcs-git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Подключение системы контроля версий
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../on-premise/how-to/repo-managers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Подключение менеджеров репозиториев
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../on-premise/how-to/projects/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Управление проектами
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../on-premise/how-to/policies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Настройка политик
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../on-premise/how-to/launch-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Запуск анализа
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../on-premise/how-to/registries/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Работа с Docker-образами
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../on-premise/how-to/users/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Управление учетными записями
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../on-premise/how-to/ldap-settings/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Работа с LDAP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../on-premise/how-to/graphs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Работа с визуализацией графов зависимостей
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../on-premise/how-to/notifications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Настройка уведомлений
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../on-premise/how-to/audit-log/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Работа с аудит-логом
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../on-premise/how-to/metrics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Настройка метрик
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../on-premise/how-to/api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Работа с API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../osa/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Работа с CodeScoring OSA
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Работа с CodeScoring OSA
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../osa/nexus_osa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nexus OSA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../osa/jfrog_osa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JFrog OSA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../osa/osa-policies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Настройка политик OSA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../osa/components/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Работа с компонентами OSA на инсталляции
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Работа с консольным агентом
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Работа с консольным агентом
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Настройка через конфигурационный файл
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Команда сканирования
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Команда сканирования
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Опции запуска
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scan-dir/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Сканирование директории
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scan-archive/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Сканирование архивов
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scan-docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Сканирование Docker образов
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../launch-docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Запуск с помощью Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gitlab-ci/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Добавление в Gitlab CI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jenkins-pipeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Добавление в Jenkins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../save-results/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Сохранение результатов сканирования
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resolve/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Разрешение зависимостей в окружении сборки
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Опции запуска
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<ul>
+<li class="i18n-link i18n-link-found i18n-link-en"><a href="../../agent/scan.en/">English</a></li>
+</ul>
+<h1 id="_1">Команда сканирования<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Запуск агента производится при помощи команды <code>scan</code> с тремя возможными вариантами сканирования:</p>
+<ul>
+<li><code>scan dir</code> – <a href="/agent/scan-dir/">сканирование директории</a>;</li>
+<li><code>scan file</code> – сканирование файла;</li>
+<li><code>scan image</code> – <a href="/agent/scan-docker">сканирование контейнерного образа</a>;</li>
+</ul>
+<h2 id="_2">Опции запуска<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Доступные и необходимые опции запуска агента для сканирования можно посмотреть при помощи флага <code>help</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ ./johnny scan --help
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>johnny - CLI tool for dependency analysis for vulnerabilities and license compliance issues. Works in connection with CodeScoring SCA.
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>CodeScoring website: https://codescoring.ru
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Documentation: https://docs.codescoring.ru
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>Exit codes:
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>- 0: successful run, no issues
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>- 1: some issues found, action required
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>- 2: run failure
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>Version: 2024.26.0
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>Usage:
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>   scan [command]
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>Available Commands:
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>  dir         Scan directory
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>  file        Scan file
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>  image       Scan image
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>Flags:
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>  -h, --help      help for scan
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>  -v, --version   version for scan
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>Global Flags:
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>      --api_token string                  API token for integration with CodeScoring server (required if api_url is set)
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>      --api_url string                    CodeScoring server url (e.g. https://codescoring.mycompany.com) (required if api_token is set)
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>      --block-on-empty-result             Block on empty result
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>      --bom-path string                   Path for save bom file (default &quot;bom.json&quot;)
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>      --conda-lock-path string            Path to conda-lock for resolve (default &quot;conda-lock&quot;)
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>      --conda-resolve                     Enable resolve using conda-lock
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>      --config string                     Config file (default &quot;codescoring-johnny-config.yaml&quot;)
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>      --create-project                    Create project in CodeScoring if not exists
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>      --debug                             Output detailed log
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>      --dotnet-path string                Path to dotnet for resolve (default &quot;dotnet&quot;)
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>      --dotnet-resolve                    Enable resolve using dotnet
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>  -f, --format string                     Report format. Supported formats: coloredtable, table, text, junit, sarif, csv. Default output to console. Supports multiformat. Example: &#39;coloredtable,junit&gt;&gt;junit.xml&#39;  (default &quot;coloredtable&quot;)
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>      --gdt-match string                  Section in gradle dependency tree for scan (default &quot;compileClasspath&quot;)
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>      --go-path string                    Path to go for resolve (default &quot;go&quot;)
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>      --go-resolve                        Enable resolve using go
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>      --gradle-path string                Path to gradle for resolve (default &quot;./gradlew&quot;)
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>      --gradle-resolve                    Enable resolve using gradle
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>  -g, --group-vulnerabilities-by string   Group vulnerabilities by. Supported kinds &#39;vulnerability&#39;, &#39;affect&#39; (default &quot;vulnerability&quot;)
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>      --ignore stringArray                Ignore paths (--ignore first --ignore &quot;/**/onem?re&quot;)
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>      --maven-path string                 Path to mvn for resolve (default &quot;mvn&quot;)
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>      --maven-resolve                     Enable resolve using mvn
+<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>      --no-summary                        Do not print summary
+<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>      --npm-path string                   Path to npm for resolve (default &quot;npm&quot;)
+<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>      --npm-resolve                       Enable resolve using npm
+<a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>      --only-hashes                       Search only for direct inclusion of dependencies using file hashes
+<a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>      --poetry-path string                Path to poetry for resolve (default &quot;poetry&quot;)
+<a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a>      --poetry-resolve                    Enable resolve using poetry
+<a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a>      --project string                    Project name in CodeScoring
+<a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a>      --python-version string             Python version
+<a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a>      --save-results                      Save results to CodeScoring. Used just together with project name
+<a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a>      --sbt-path string                   Path to sbt for resolve (default &quot;sbt&quot;)
+<a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a>      --sbt-resolve                       Enable resolve using sbt
+<a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a>      --scan-archives                     Scan archives. Supported types: &#39;.jar&#39;, &#39;.rar&#39;, &#39;.tar&#39;, &#39;.tar.bz2&#39;, &#39;.tbz2&#39;, &#39;.tar.gz&#39;, &#39;.tgz&#39;, &#39;.tar.xz&#39;, &#39;.txz&#39;, &#39;.war&#39;, &#39;.zip&#39;, &#39;.aar&#39;, &#39;.egg&#39;, &#39;.hpi&#39;, &#39;.nupkg&#39;, &#39;.whl&#39;
+<a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a>      --scan-depth int                    Archive scanning depth (default 1)
+<a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a>  -s, --sort-vulnerabilities-by string    Sort vulnerabilities by. Comma separated field names. For DESC - write field name with prefix &#39;-&#39;.
+<a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a>                                          FieldNames: &#39;vulnerability&#39;, &#39;fixedversion&#39;, &#39;cvss2&#39;, &#39;cvss3&#39;, &#39;cwes&#39;, &#39;links&#39;, &#39;affect&#39; (default &quot;-cvss3,-cvss2,fixedversion,vulnerability,cwes,links,affect&quot;)
+<a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a>      --stage string                      Policy stage (build, dev, source, stage, test, prod, proxy) (default &quot;build&quot;)
+<a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a>      --swift-path string                 Path to swift for resolve (default &quot;swift&quot;)
+<a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a>      --swift-resolve                     Enable resolve using swift
+<a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a>  -t, --timeout uint16                    Timeout of analysis results waiting in seconds (default 3600)
+<a id="__codelineno-0-66" name="__codelineno-0-66" href="#__codelineno-0-66"></a>      --with-hashes                       Search for direct inclusion of dependencies using file hashes
+<a id="__codelineno-0-67" name="__codelineno-0-67" href="#__codelineno-0-67"></a>      --yarn-path string                  Path to yarn for resolve (default &quot;yarn&quot;)
+<a id="__codelineno-0-68" name="__codelineno-0-68" href="#__codelineno-0-68"></a>      --yarn-resolve                      Enable resolve using yarn
+<a id="__codelineno-0-69" name="__codelineno-0-69" href="#__codelineno-0-69"></a>
+<a id="__codelineno-0-70" name="__codelineno-0-70" href="#__codelineno-0-70"></a>Use &quot; scan [command] --help&quot; for more information about a command.
+</code></pre></div>
+<p>В параметре <code>--api_url</code> должен быть указан полный адрес on-premise инсталляции. Значение для <code>--api_token</code> можно взять в профиле пользователя инсталляции.</p>
+<p>Указание параметра <code>--project</code> позволит при сканировании применить политики, относящиеся к выбранному проекту.</p>
+<p>Для указания пути к файлу сохранения SBOM необходимо добавить параметр <code>--bom-path</code> в запрос или назначить переменную <code>bom-path</code> в config-файле. По умолчанию SBOM сохраняется в директории запуска в файл <code>bom.json</code>.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2018 - <script>document.write(new Date().getFullYear())</script> Profiscope
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.indexes", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+        <script src="../../js/print-site.js"></script>
+      
+    
+  </body>
+</html>
