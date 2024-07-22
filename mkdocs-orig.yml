@@ -1,9 +1,8 @@
 site_name: Публичная документация CodeScoring
-docs_dir: '../../docs/ru'
-# site_url: https://docs.codescoring.ru/
+site_url: https://docs.codescoring.ru/
 theme:
   name: material
-  custom_dir: '../../overrides/'
+  custom_dir: overrides
   language: ru
   logo: assets/codescoring_logo.png
   favicon: assets/favicon/favicon-32x32.png
@@ -33,20 +32,12 @@ theme:
 extra:
   analytics:
     provider: custom
-  alternate:
-    - name: English
-      link: /test-docs/en/ 
-      lang: en
-    - name: Русский
-      link: /test-docs/
-      lang: ru
 
 copyright: Copyright &copy; 2018 - <script>document.write(new Date().getFullYear())</script> Profiscope
 
 plugins:
   - search
   - print-site
-
 
 markdown_extensions:
   - attr_list

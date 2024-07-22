@@ -1,0 +1,289 @@
+site_name: Публичная документация CodeScoring
+
+# repo_url: https://gitlab.com/mkdocs-i18n/mkdocs-i18n
+# edit_uri: ''
+
+theme:
+  name: material
+  custom_dir: 'overrides'
+  language: ru
+  logo: assets/codescoring_logo.png
+  favicon: assets/favicon/favicon-32x32.png
+  features:
+    - navigation.tracking
+    - navigation.indexes
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/link
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to system preference
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off
+        name: Switch to light mode
+
+plugins:
+  - search
+  - print-site
+  - i18n:
+      languages:
+        ru: "Русский"
+        en: "English"
+      default_language: 'ru'
+      no_translation:
+        ru: "Эта страница еще не переведена на русский язык."
+        en: "This page has not been translated to English for now."
+      translate_nav:
+        en:
+          main: "General"
+          begin: "Beginning"
+          functionality: "Functionality"
+          integration-stages: "Integration stages"
+          supported-package-managers: "Supported package managers" 
+          changelog: "Changelog"
+          installation: "Installation and usage"
+          hardware: "Hardware requirements"
+          installation-docker: "Installation guide"
+          installation-kubernetes: "Installation in Kubernetes"
+          update: "Update guide"
+          backup: "Backup guide"
+          proxy: "Proxy usage"
+          ssl: "Self signed SSL certificates"
+          analysis-ignore-paths: "Analysis paths and exceptions"
+          troubleshooting: "Troubleshooting"
+          beginning: "Start working with on-premise"
+          activation: "Activation"
+          proprietors: "Creating proprietors"
+          vcs: "Connecting to a Version Control System"
+          repo-managers: "Connecting to repo managers"
+          project-control: "Managing projects"
+          policies: "Manging policies settings"
+          launch-analysis: "Launch analysis"
+          registries: "Managing Docker images"
+          users: "Managing users"
+          ldap: "LDAP Settings"
+          graph: "Visualizing dependency graph"
+          notifications: "Notification settings"
+          audit-log: "Audit log"
+          metrics: "Metrics"
+          api: "API usage"
+          osa: "CodeScoring OSA"
+          osa-general: "General"
+          nexus-osa: "Nexus OSA"
+          jfrog-osa: "JFrog OSA"
+          osa-policies: "OSA policies settings"
+          osa-components: "OSA components"
+          agent: "Command line agent"
+          agent-general: "General"
+          agent-config: "Configuration"
+          agent-scan: "Running scan"
+          agent-scan-dir: "Directory scan"
+          agent-scan-archive: "Archive scan"
+          agent-scan-docker: "Docker image scan"
+          agent-launch-docker: "Launch in Docker"
+          agent-gitlab-ci: "Using in Gitlab CI"
+          agent-jenkins: "Using in Jenkins Pipeline"
+          agent-save-results: "Save scan results"
+          agent-resolve: "Resolve dependencies"
+
+        ru:
+          main: "Общая информация"
+          begin: "Начало"
+          functionality: "Функциональные характеристики"
+          integration-stages: "Этапы интеграции"
+          supported-package-managers: "Поддержка пакетных менеджеров"
+          changelog: "Changelog"
+          installation: "Установка и эксплуатация on-premise"
+          hardware: "Аппаратные требования"
+          installation-docker: "Установка системы"
+          installation-kubernetes: "Installation in Kubernetes"
+          update: "Обновление системы"
+          backup: "Резервное копирование"
+          proxy: "Работа через прокси"
+          ssl: "Самоподписанные SSL сертификаты"
+          analysis-ignore-paths: "Пути анализа и исключения"
+          troubleshooting: "Диагностика неполадок"
+          beginning: "Начало работы с on-premise"
+          activation: "Ввод ключа активации"
+          proprietors: "Создание владельцев"
+          vcs: "Подключение системы контроля версий"
+          repo-managers: "Подключение менеджеров репозиториев"
+          project-control: "Управление проектами"
+          policies: "Настройка политик"
+          launch-analysis: "Запуск анализа"
+          registries: "Работа с Docker-образами"
+          users: "Управление учетными записями"
+          ldap: "Работа с LDAP"
+          graph: "Работа с визуализацией графов зависимостей"
+          notifications: "Настройка уведомлений"
+          audit-log: "Работа с аудит-логом"
+          metrics: "Настройка метрик"
+          api: "Работа с API"
+          osa: "Работа с CodeScoring OSA"
+          osa-general: "Общее"
+          nexus-osa: "Nexus OSA"
+          jfrog-osa: "JFrog OSA"
+          osa-policies: "Настройка политик OSA"
+          osa-components: "Работа с компонентами OSA на инсталляции"
+          agent: "Работа с консольным агентом"
+          agent-general: "Общее"
+          agent-config: "Настройка через конфигурационный файл"
+          agent-scan: "Команда сканирования"
+          agent-scan-dir: "Сканирование директории"
+          agent-scan-archive: "Сканирование архивов"
+          agent-scan-docker: "Сканирование Docker образов"
+          agent-launch-docker: "Запуск с помощью Docker"
+          agent-gitlab-ci: "Добавление в Gitlab CI"
+          agent-jenkins: "Добавление в Jenkins"
+          agent-save-results: "Сохранение результатов сканирования"
+          agent-resolve: "Разрешение зависимостей в окружении сборки"
+
+nav:
+  - main:
+    - begin: index.md
+    - begin: index.en.md
+    - functionality: functionality.md
+    - functionality: functionality.en.md
+    - integration-stages: integration-stages.md
+    - integration-stages: integration-stages.en.md
+    - supported-package-managers: supported-package-managers.md
+    - supported-package-managers: supported-package-managers.en.md
+    - changelog: changelog.md
+    - changelog: changelog.en.md
+  - installation:
+    - hardware: on-premise/server-requirements.md
+    - hardware: on-premise/server-requirements.en.md
+    - installation-docker: on-premise/installation.md
+    - installation-docker: on-premise/installation.en.md
+    - installation-kubernetes: on-premise/installation-in-k8s.md
+    - installation-kubernetes: on-premise/installation-in-k8s.en.md
+    - update: on-premise/update.md
+    - update: on-premise/update.en.md
+    - backup: on-premise/backup.md
+    - backup: on-premise/backup.en.md
+    - proxy: on-premise/proxy.md
+    - proxy: on-premise/proxy.en.md
+    - ssl: on-premise/self-signed-ssl.md
+    - ssl: on-premise/self-signed-ssl.en.md
+    - analysis-ignore-paths: on-premise/analysis-ignore-paths.md
+    - analysis-ignore-paths: on-premise/analysis-ignore-paths.en.md
+    - troubleshooting: on-premise/troubleshooting.md
+    - troubleshooting: on-premise/troubleshooting.en.md
+  - beginning:
+    - activation: on-premise/how-to/activation.md
+    - activation: on-premise/how-to/activation.en.md
+    - proprietors: on-premise/how-to/proprietors.md
+    - proprietors: on-premise/how-to/proprietors.en.md
+    - vcs: on-premise/how-to/vcs-git.md
+    - vcs: on-premise/how-to/vcs-git.en.md
+    - repo-managers: on-premise/how-to/repo-managers.md
+    - repo-managers: on-premise/how-to/repo-managers.en.md
+    - project-control: on-premise/how-to/projects.md
+    - project-control: on-premise/how-to/projects.en.md
+    - policies: on-premise/how-to/policies.md
+    - policies: on-premise/how-to/policies.en.md
+    - launch-analysis: on-premise/how-to/launch-analysis.md
+    - launch-analysis: on-premise/how-to/launch-analysis.en.md
+    - registries: on-premise/how-to/registries.md
+    - registries: on-premise/how-to/registries.en.md
+    - users: on-premise/how-to/users.md
+    - users: on-premise/how-to/users.en.md
+    - ldap: on-premise/how-to/ldap-settings.md
+    - ldap: on-premise/how-to/ldap-settings.en.md
+    - graph: on-premise/how-to/graphs.md
+    - graph: on-premise/how-to/graphs.en.md
+    - notifications: on-premise/how-to/notifications.md
+    - notifications: on-premise/how-to/notifications.en.md
+    - audit-log: on-premise/how-to/audit-log.md
+    - audit-log: on-premise/how-to/audit-log.en.md
+    - metrics: on-premise/how-to/metrics.md
+    - metrics: on-premise/how-to/metrics.en.md
+    - api: on-premise/how-to/api.md
+    - api: on-premise/how-to/api.en.md
+  - osa:
+    - osa-general: osa/index.md
+    - osa-general: osa/index.en.md
+    - nexus-osa: osa/nexus_osa.md
+    - nexus-osa: osa/nexus_osa.en.md
+    - jfrog-osa: osa/jfrog_osa.md
+    - jfrog-osa: osa/jfrog_osa.en.md
+    - osa-policies: osa/osa-policies.md
+    - osa-policies: osa/osa-policies.en.md
+    - osa-components: osa/components.md
+    - osa-components: osa/components.en.md
+  - agent:
+    - agent-general: agent/index.md
+    - agent-general: agent/index.en.md
+    - agent-config: agent/config.md
+    - agent-config: agent/config.en.md
+    - agent-scan: agent/scan.md
+    - agent-scan: agent/scan.en.md
+    - agent-scan-dir: agent/scan-dir.md
+    - agent-scan-dir: agent/scan-dir.en.md
+    - agent-scan-archive: agent/scan-archive.md
+    - agent-scan-archive: agent/scan-archive.en.md
+    - agent-scan-docker: agent/scan-docker.md
+    - agent-scan-docker: agent/scan-docker.en.md
+    - agent-launch-docker: agent/launch-docker.md
+    - agent-launch-docker: agent/launch-docker.en.md
+    - agent-gitlab-ci: agent/gitlab-ci.md
+    - agent-gitlab-ci: agent/gitlab-ci.en.md
+    - agent-jenkins: agent/jenkins-pipeline.md
+    - agent-jenkins: agent/jenkins-pipeline.en.md
+    - agent-save-results: agent/save-results.md
+    - agent-save-results: agent/save-results.en.md
+    - agent-resolve: agent/resolve.md
+    - agent-resolve: agent/resolve.en.md
+
+
+copyright: Copyright &copy; 2018 - <script>document.write(new Date().getFullYear())</script> Profiscope
+
+markdown_extensions:
+  - attr_list
+  - def_list
+  - tables
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - toc:
+        permalink: true
+
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  # Default mkdocs-material alternate links for untranslated pages
+  # https://squidfunk.github.io/mkdocs-material/setup/changing-the-language/#site-language-selector
+  # For translated pages the language name is replaced by the string configured in i18n plugin
+  # secction and link is replaced by the link to the translated page
+  alternate:
+    - name: "Русский"
+      link: "/"
+      lang: ru
+
+    - name: "English"
+      link: "/index.en/"
+      lang: en
+  i18n:
+    - ru:
+      site_name: "Публичная документация CodeScoring"
+    - en:
+      site_name: "CodeScoring Public Docs"

@@ -3,6 +3,7 @@ on:
   push:
     branches: 
       - main
+      - plugin
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -13,9 +14,5 @@ jobs:
           python-version: 3.x
       - run: pip install mkdocs-material
       - run: pip install mkdocs-print-site-plugin
-      
-      - name: Deploy ru docs
-        run: mkdocs gh-deploy --force --config-file config/ru/mkdocs.yml
-
-      - name: Deploy en docs
-        run: mkdocs gh-deploy --force --config-file config/en/mkdocs.yml
+      - run: pip install mkdocs-i18n
+      - run: mkdocs gh-deploy --force

@@ -4,7 +4,9 @@ hide:
 ---
 # Functionality
 
-## General functionality
+## This is functionality in English
+
+## Общие функциональные характеристики
 
 - поддержка анализа 18 языков программирования; 
 - поддержка анализа манифестов пакетных экосистем: **Maven, Gradle, NPM, NuGet, PyPi, Ruby Gems, Cocoapods, Composer, Conan, Go Modules, Cargo и sbt**;
